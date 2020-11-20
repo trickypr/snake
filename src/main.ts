@@ -1,16 +1,20 @@
+import { initNetwork } from './ai'
 import Snake from './snake'
 
 const gridSize = 20
-const scale    = 30
+const scale    = 20
 
 let canvas: HTMLCanvasElement
 let ctx: CanvasRenderingContext2D
+
+const canvasVision = document.getElementById('snakeVision') as HTMLCanvasElement
+const snakeVision = canvasVision.getContext('2d')
 
 let render = []
 let runUpdate = []
 
 const interval = 8
-let snake
+let snake: Snake
 
 init()
 
@@ -23,7 +27,7 @@ function init() {
 
 	snake = new Snake(gridSize, scale)
 
-	canvas.width = canvas.height = gridSize * scale
+	canvas.width = canvas.height = canvasVision.width = canvasVision.height = gridSize * scale
 
 	render = []
 	runUpdate = []
@@ -33,12 +37,20 @@ function init() {
 	runUpdate.push(snake)
 
 	document.addEventListener('keydown', e => snake.keydown(e))
+
+	initNetwork(gridSize)
 }
+
+let segment = true
 
 function update() {
 	runUpdate.forEach(el => el.update())
 
 	if (snake.dead) init()
+	if (segment) {
+		snake.worldInterface()
+		segment = false
+	}
 }
 
 function draw() {
@@ -50,6 +62,22 @@ function draw() {
 	ctx.fillRect(0, 0, size, size)
 
 	render.forEach(el => el.render(ctx))
+
+	snakeVision.clearRect(0, 0, size, size)
+
+	const world = snake.worldInterface()
+
+	world.forEach((e, y) => {
+		e.forEach((s, x) => {
+			snakeVision.fillStyle = `hsl(0, 0%, ${s * 100}%)`
+			snakeVision.fillRect(
+				x * scale,
+				y * scale,
+				scale,
+				scale
+			)
+		})
+	})
 
 	requestAnimationFrame(draw)
 }

@@ -5,6 +5,13 @@ interface Segment {
 	y: number
 }
 
+enum World {
+	BLANK = 0,
+	SNAKE_SEGMENT = 0.25,
+	SNAKE_HEAD = 0.5,
+	APPLE = 0.75
+}
+
 export default class Snake {
 	nextX: number
 	nextY: number
@@ -118,5 +125,20 @@ export default class Snake {
 				this.tileSize,
 			)
 		})
+	}
+
+	worldInterface(): number[][] {
+		const world = []
+
+		for (let x = 0; x < this.gridSize; x++) {
+			world.push(Array.apply(null, { length: this.gridSize }).map(i => World.BLANK))
+		}
+
+		this.segments.forEach(s => world[s.y][s.x] = World.SNAKE_SEGMENT)
+
+		world[this.y][this.x] = World.SNAKE_HEAD
+		world[this.apple.y][this.apple.x]  = World.APPLE
+
+		return world
 	}
 }

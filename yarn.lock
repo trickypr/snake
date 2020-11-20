@@ -937,6 +937,11 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
 
+"@types/synaptic@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@types/synaptic/-/synaptic-1.0.3.tgz#9bb132018cfc27d1476515960c29ce93403df7b1"
+  integrity sha512-YhFSgLpf684br0COiwSfdlH8vrW86kUuYaOWwgjoC5p2kGrdUQotMArk1cBopXQJeDfzsHlZtCWUkUNuHVkbHw==
+
 abab@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -3308,6 +3313,11 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+neataptic@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/neataptic/-/neataptic-1.4.7.tgz#88cc00df1915572fe1af61652e3b1f87a7f50e74"
+  integrity sha512-nnCkg5QitBYXRB6MpJEhGwqDp/oIaD8RthXb8VmpYYxA8XGdMyATwOEuDFgBGlvmR8hNEzYy6E/a6LT6HngSCQ==
 
 nice-try@^1.0.4:
   version "1.0.5"

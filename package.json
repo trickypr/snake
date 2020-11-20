@@ -7,7 +7,9 @@
     "dev": "parcel serve src/index.html"
   },
   "dependencies": {
+    "@types/synaptic": "^1.0.3",
     "convnetjs": "^0.3.0",
+    "neataptic": "^1.4.7",
     "synaptic": "^1.1.4"
   }
 }
